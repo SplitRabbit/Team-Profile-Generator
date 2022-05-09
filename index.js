@@ -67,13 +67,13 @@ function promptUser() {
     return inquirer.prompt(questions).then((answers) => {
 
     //conditional for pushing new employee objects into teamArray
-        if (answers.role = "Manager") {
+        if (answers.role === "Manager") {
             const manager = new Manager(answers.name,answers.id,answers.email,answers.officenumber);
-            teamArray.push(Manager);
-        } else if (answers.role = "Engineer") {
+            teamArray.push(manager);
+        } else if (answers.role === "Engineer") {
             const engineer = new Engineer(answers.name,answers.id,answers.email,answers.Github);
             teamArray.push(engineer);
-        } else if (answers.role = "Intern"){
+        } else {
             const intern = new Intern(answers.name,answers.id,answers.email,answers.school);
             teamArray.push(intern);
         };
@@ -86,12 +86,20 @@ function promptUser() {
     });
 };
 
-// TODO: Create a function to initialize app
+//createPage function for html
+function createPage() {
+
+};
+
+// Create a function to initialize app
 async function init() {
     try {
     //ask questions
     const answers =  await promptUser();
     console.log(teamArray);
+    
+    //create page
+    createPage();
   }   catch(err) {
     console.log(err);
   }
