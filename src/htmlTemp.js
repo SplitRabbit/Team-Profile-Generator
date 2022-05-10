@@ -13,7 +13,7 @@ const generateHTML = function (teamString) {
 </head>
 <body>
 <div class="header">
-<div class="jumbotron">
+<div class="jumbotron bg-dark">
    <h1 class="display-4 text-white text-center">My Team</h1>
 </div>
 </div>
