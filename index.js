@@ -1,8 +1,12 @@
 const inquirer = require('inquirer');
+const fs = require("fs");
+const util = require("util");
 const Manager = require('./lib/Manager.js');
 const Intern = require('./lib/Intern.js');
 const Engineer = require('./lib/Engineer.js');
 const Employee = require('./lib/Employee.js');
+const html = require("./src/htmlTemp");
+const writeFileAsync = util.promisify(fs.writeFile);
 
 //list of manager questions for inquirer
 const questions = [
@@ -60,6 +64,7 @@ const questions = [
 
 //Array for team objects
 let teamArray = [];
+let teamString = ``;
 
 //promptuser function
 function promptUser() {
@@ -88,7 +93,13 @@ function promptUser() {
 
 //createPage function for html
 function createPage() {
+    for (let i = 0; i<teamArray.length; i++) {
+        teamString = teamString + html.generateCard(teamArray[i]);
+    }
 
+    let finalHTML = html.generateHTML(teamString);
+    writeFileAsync("./dist/index.html", finalHTML);
+    console.log("index.html file created successfully");
 };
 
 // Create a function to initialize app
@@ -97,7 +108,7 @@ async function init() {
     //ask questions
     const answers =  await promptUser();
     console.log(teamArray);
-    
+
     //create page
     createPage();
   }   catch(err) {
