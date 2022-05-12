@@ -70,7 +70,7 @@ let teamString = ``;
 function promptUser() {
     console.log("Enter Employee Information Here.");
     return inquirer.prompt(questions).then((answers) => {
-
+        console.log(answers)
     //conditional for pushing new employee objects into teamArray
         if (answers.role === "Manager") {
             const manager = new Manager(answers.name,answers.id,answers.email,answers.officenumber);
@@ -115,6 +115,5 @@ async function init() {
     console.log(err);
   }
 };
-
 
 init();
