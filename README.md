@@ -26,3 +26,4 @@
   ✉️ Email me with any questions: jeffreykunwang@gmail.com<br /><br />
   _This README was generated with ❤️ by [README-generator](https://github.com/SplitRabbit/README-generator) _
     
+  Walkthrough video: https://drive.google.com/file/d/1zuiafsSNrb5N2NlHf6gOmgJyVfuIslVB/view
